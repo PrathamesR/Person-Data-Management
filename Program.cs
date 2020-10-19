@@ -17,7 +17,8 @@ namespace PersonDataManagement
             Console.WriteLine("\nAge Between 13 to 18:");
             GetBetween13to18(people);
             Console.Write("\nAverage Age: "+GetAverageAge(people));
-
+            Console.WriteLine("");
+            FindPerson(people, "Abc");
             Console.Read();
         }
 
@@ -49,5 +50,14 @@ namespace PersonDataManagement
         {
             return people.Average(e => e.Age);
         }
+
+        public static void FindPerson(List<Person> people,string name)
+        {
+            if (people.Any(e => (name.Equals(e.Name))))
+                Console.WriteLine(name + " is present in the list");
+            else
+                Console.WriteLine(name + " is not present in the list");
+        }
+
     }
 }
