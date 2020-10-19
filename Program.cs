@@ -16,6 +16,8 @@ namespace PersonDataManagement
             GetLessThan60(people);
             Console.WriteLine("\nAge Between 13 to 18:");
             GetBetween13to18(people);
+            Console.Write("\nAverage Age: "+GetAverageAge(people));
+
             Console.Read();
         }
 
@@ -41,6 +43,11 @@ namespace PersonDataManagement
         {
             foreach (Person person in people.FindAll(e => (e.Age >= 13 && e.Age <= 18)))
                 Console.WriteLine(person.Name + " Age:" + person.Age);
+        }
+
+        public static double GetAverageAge(List<Person> people)
+        {
+            return people.Average(e => e.Age);
         }
     }
 }
