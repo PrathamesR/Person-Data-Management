@@ -12,7 +12,10 @@ namespace PersonDataManagement
         {
             List<Person> people = new List<Person>();
             AddDefaultData(people);
+            Console.WriteLine("Age Less than 60:");
             GetLessThan60(people);
+            Console.WriteLine("\nAge Between 13 to 18:");
+            GetBetween13to18(people);
             Console.Read();
         }
 
@@ -21,7 +24,9 @@ namespace PersonDataManagement
             people.Add(new Person("SSN1", "Abc", "Address 1", 73));
             people.Add(new Person("SSN2", "Def", "Address 2", 50));
             people.Add(new Person("SSN3", "Ghi", "Address 3", 40));
-            people.Add(new Person("SSN4", "Name", "Address 4", 45));
+            people.Add(new Person("SSN4", "Hijk", "Address 5", 15));
+            people.Add(new Person("SSN5", "Lmno", "Address 6", 25));
+            people.Add(new Person("SSN6", "pqrs", "Address 7", 18));
         }
 
         public static void GetLessThan60(List<Person> people)
@@ -30,6 +35,12 @@ namespace PersonDataManagement
             {
                 Console.WriteLine(person.Name+" Age: " + person.Age);
             }
+        }
+
+        public static void GetBetween13to18(List<Person> people)
+        {
+            foreach (Person person in people.FindAll(e => (e.Age >= 13 && e.Age <= 18)))
+                Console.WriteLine(person.Name + " Age:" + person.Age);
         }
     }
 }
