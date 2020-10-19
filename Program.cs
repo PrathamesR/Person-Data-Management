@@ -59,5 +59,10 @@ namespace PersonDataManagement
                 Console.WriteLine(name + " is not present in the list");
         }
 
+        public static void GetMoreThan60(List<Person> people)
+        {
+            foreach (Person person in people.FindAll(p => (p.Age > 60)))
+                Console.WriteLine(person.Name + " Age: " + person.Age);
+        }
     }
 }
